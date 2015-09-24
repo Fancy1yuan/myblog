@@ -64,6 +64,11 @@ DATABASES = {
     }
 }
 
+
+#Customizing authentication
+AUTH_USER_MODEL = 'blog.UserProfile'
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
