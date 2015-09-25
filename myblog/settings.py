@@ -66,7 +66,6 @@ DATABASES = {
 
 
 #Customizing authentication
-AUTH_USER_MODEL = 'blog.UserProfile'
 
 
 # Internationalization
