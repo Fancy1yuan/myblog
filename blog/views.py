@@ -19,3 +19,7 @@ def contact(request):
 
 def not_found(request):
     return render(request, '404.html')
+
+
+def test(request):
+    return render(request, 'base.html')
