@@ -47,8 +47,8 @@ class ArticleAdmin(admin.ModelAdmin):
 
     class Media:
         js = (
-            'static/js/tinymce/tinymce.min.js',
-            'static/js/tinymce/config.js',
+            '/static/js/tinymce/tinymce.min.js',
+            '/static/js/tinymce/config.js',
         )
 
 

@@ -27,6 +27,9 @@ class Tag(models.Model):
         verbose_name_plural = "标签"
         ordering = ['name']
 
+    def __unicode__(self):
+        return self.name
+
 class Catagory(models.Model):
     name = models.CharField("分类", max_length=30)
     create_time = models.DateTimeField("创建时间", auto_now_add=True)
@@ -36,6 +39,9 @@ class Catagory(models.Model):
         verbose_name_plural = "分类"
         ordering = ['name']
 
+    def __unicode__(self):
+        return self.name
+
 
 class Article(models.Model):
     title = models.CharField("标题", max_length=50)
@@ -44,13 +50,16 @@ class Article(models.Model):
     tags = models.ManyToManyField(Tag, "标签")
     catagory = models.ForeignKey(Catagory, verbose_name="分类")
     publish_time = models.DateTimeField("发表时间", auto_now_add=True)
-    praise_count = models.IntegerField("点赞")
+    praise_count = models.IntegerField("点赞", default=0)
 
 
     class Meta:
         verbose_name = "文章"
         verbose_name_plural = "文章"
         ordering = ['publish_time']
+
+    def __unicode__(self):
+        return self.title
 
 
 class Comment(models.Model):
@@ -65,5 +74,8 @@ class Comment(models.Model):
         verbose_name = "评论"
         verbose_name_plural = "评论"
         ordering = ['create_time']
+
+    def __unicode__(self):
+        return self.id
 
 
