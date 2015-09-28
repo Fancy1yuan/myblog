@@ -73,9 +73,11 @@ img.emoji {
 					<!-- Primary Menu -->
 					<div id="menu-primary" class="menu-container menu-primary" role="navigation">
 
-    <nav class="menu"><ul id="menu-primary-items" class="menu-primary-items"><li id="menu-item-111" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-111"><a href="https://www.competethemes.com/apex-live-demo/">Home</a></li>
-<li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-61 current_page_item menu-item-113"><a href="/static/css/About.html">About</a></li>
-<li id="menu-item-112" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-112"><a href="https://www.competethemes.com/apex-live-demo/sample-page-2/">Services</a><button class="toggle-dropdown" aria-expanded="false" name="toggle-dropdown" tabindex="-1"><span class="screen-reader-text">open dropdown menu</span></button>
+    <nav class="menu">
+    	<ul id="menu-primary-items" class="menu-primary-items">
+    		<li id="menu-item-111" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-111"><a href="https://www.competethemes.com/apex-live-demo/">Home</a></li>
+			<li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-61 current_page_item menu-item-113"><a href="/static/css/About.html">About</a></li>
+			<li id="menu-item-112" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-112"><a href="https://www.competethemes.com/apex-live-demo/sample-page-2/">Services</a><button class="toggle-dropdown" aria-expanded="false" name="toggle-dropdown" tabindex="-1"><span class="screen-reader-text">open dropdown menu</span></button>
 <ul class="sub-menu">
 	<li id="menu-item-136" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-136"><a href="https://www.competethemes.com/apex-live-demo/dropdown-example-1/">Dropdown Example 1</a></li>
 	<li id="menu-item-135" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-135"><a href="https://www.competethemes.com/apex-live-demo/dropdown-example-2/">Example Two</a></li>

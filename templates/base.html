@@ -3,13 +3,17 @@
 <html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <meta charset="UTF-8">
-    <title>Apex Live Demo: Sophisticated and minimalist</title>
-
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <!--自定义css-->
+    {% block custom_css %}
+    {% endblock %}
     <link rel="stylesheet" id="ct-apex-google-fonts-css" href="/static/css/css" type="text/css" media="all">
     <link rel="stylesheet" id="font-awesome-css" href="/static/css/font-awesome.min.css" type="text/css" media="all">
     <link rel="stylesheet" id="ct-apex-style-css" href="/static/css/style.min.css" type="text/css" media="all">
-    <script type="text/javascript" src="/static/image/jquery.js"></script>
-    <script type="text/javascript" src="/static/js/jquery-migrate.min.js"></script>
+
 <!--[if IE 8]>
 <script type='text/javascript' src='https://www.competethemes.com/apex-live-demo/wp-content/themes/apex/js/build/html5shiv.min.js?ver=4.3.1'></script>
 <![endif]-->
@@ -24,11 +28,9 @@
 					<!-- Primary Menu -->
 					<div id="menu-primary" class="menu-container menu-primary" role="navigation">
                         <nav class="menu">
-                            <ul id="menu-primary-items" class="menu-primary-items">
-                                <li id="menu-item-111" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-111"><a href="/static/css/Apex Live Demo_ Sophisticated and minimalist.html">Home</a></li>
-                                <li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113"><a href="https://www.competethemes.com/apex-live-demo/about/">About</a></li>
-                                <li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113"><a href="https://www.competethemes.com/apex-live-demo/about/">Contact me</a></li>
-                            </ul>
+                            {% block menu %}
+                            {% endblock %}
+
                         </nav>
                     </div><!-- #menu-primary .menu-container -->
 
@@ -59,317 +61,44 @@
 
 
 				<div id="title-container" class="title-container">
-					<h1 id="site-title" class="site-title"><a href="https://www.competethemes.com/apex-live-demo" title="Apex Live Demo">Apex Live Demo</a></h1>
+					<h1 id="site-title" class="site-title" ><a href="https://www.competethemes.com/apex-live-demo" title="Apex Live Demo">Apex Live Demo</a></h1>
                     <p class="tagline">Sophisticated and minimalist</p>
                 </div>
             </header>
 			<!-- 头部结束。 -->
 
+            {% block main %}
 
-            <section id="main" class="main" role="main">
-				<div class="entry post publish author-drop-live-demo post-44 format-standard has-post-thumbnail sticky category-cooking category-news post_tag-blogging post_tag-funny post_tag-new">
-		            <article>
-		
-                        <div class="featured-image" style="background-image: url(&#39;https://www.competethemes.com/apex-live-demo/wp-content/uploads/sites/43/2015/02/golden-gate-bridge.jpg&#39;)">
-                            <a href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/">From State to State</a>
-                        </div>
-                		<div class="post-container">
-                            <div class="post-header">
-                                <div class="sticky-status">
-                                    <span>Featured Post</span>
-                                </div>
-                                <h2 class="post-title">
-                                    <a href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/">From State to State</a>
-                                </h2>
-                                <span class="post-date">Published February 10, 2015	</span>
-                            </div>
-			                <div class="post-content">
-				                <p>Nam auctor a purus vel venenatis. Quisque magna nibh, cursus ac nisl nec, porta porttitor arcu. Nam sapien magna, semper ut lectus nec, fermentum rutrum…</p>
-                                <p>
-                                    <a class="more-link" href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/">Continue reading <span class="screen-reader-text">From State to State</span>
-                                    </a>
-                                </p>
-                                <span class="comments-link">
-                                    <i class="fa fa-comment" title="comment icon"></i>
-                                    <a href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/#comments">2 Comments</a>
-                                </span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+            {% endblock %}
+
+            <!-- .main -->
+
+            {% include 'sidebar.html' %}
 
 
-                <div class="entry post publish author-drop-live-demo post-19 format-standard has-post-thumbnail category-fashion category-gaming post_tag-blogging post_tag-cooking post_tag-fashion post_tag-food">
-                            <article>
-		
-                <div class="featured-image" style="background-image: url(&#39;https://www.competethemes.com/apex-live-demo/wp-content/uploads/sites/43/2015/02/imac.jpg&#39;)">
-                    <a href="https://www.competethemes.com/apex-live-demo/2015/02/01/the-tracks-theme-is-awesome/">Work, Productivity, and Decision Making</a>
-                </div>
-                		<div class="post-container">
-			<div class="post-header">
-								<h2 class="post-title">
-					<a href="https://www.competethemes.com/apex-live-demo/2015/02/01/the-tracks-theme-is-awesome/">Work, Productivity, and Decision Making</a>
-				</h2>
-				<span class="post-date">
-					Published February 1, 2015				</span>
-			</div>
-			<div class="post-content">
-				<p>Quisque dapibus, velit eget ullamcorper suscipit, sapien ligula hendrerit lectus, vitae tristique sapien velit ac lectus. Mauris ullamcorper nisi sit amet est vestibulum interdum. Integer…</p>
-<p><a class="more-link" href="https://www.competethemes.com/apex-live-demo/2015/02/01/the-tracks-theme-is-awesome/">Continue reading <span class="screen-reader-text">Work, Productivity, and Decision Making</span></a></p>				<span class="comments-link">
-	<i class="fa fa-comment" title="comment icon"></i>
-	<a href="https://www.competethemes.com/apex-live-demo/2015/02/01/the-tracks-theme-is-awesome/#comments">Leave a Comment</a></span>			</div>
-		</div>
-	</article>
-	</div><div class="entry post publish author-drop-live-demo post-41 format-standard has-post-thumbnail category-design category-fashion post_tag-fashion post_tag-foreign post_tag-wordpress">
-		<article>
-		
-                <div class="featured-image" style="background-image: url(&#39;https://www.competethemes.com/apex-live-demo/wp-content/uploads/sites/43/2015/01/clothes.jpg&#39;)">
-                    <a href="https://www.competethemes.com/apex-live-demo/2015/01/17/change-your-look/">New Lessons and Perspectives</a>
-                </div>
-                		<div class="post-container">
-			<div class="post-header">
-								<h2 class="post-title">
-					<a href="https://www.competethemes.com/apex-live-demo/2015/01/17/change-your-look/">New Lessons and Perspectives</a>
-				</h2>
-				<span class="post-date">
-					Published January 17, 2015				</span>
-			</div>
-			<div class="post-content">
-				<p>Suspendisse venenatis quam lacus, ac aliquam mauris vehicula ac. Duis pellentesque est sapien, nec porttitor enim dapibus id. Sed a adipiscing nisl, eu dictum risus.…</p>
-<p><a class="more-link" href="https://www.competethemes.com/apex-live-demo/2015/01/17/change-your-look/">Continue reading <span class="screen-reader-text">New Lessons and Perspectives</span></a></p>				<span class="comments-link">
-	<i class="fa fa-comment" title="comment icon"></i>
-	<a href="https://www.competethemes.com/apex-live-demo/2015/01/17/change-your-look/#comments">Leave a Comment</a></span>			</div>
-		</div>
-	</article>
-	</div><div class="entry post publish author-drop-live-demo post-29 format-standard has-post-thumbnail category-travel post_tag-fashion post_tag-food post_tag-images">
-		<article>
-		
-                <div class="featured-image" style="background-image: url(&#39;https://www.competethemes.com/apex-live-demo/wp-content/uploads/sites/43/2015/02/purple-volcano.jpeg&#39;)">
-                    <a href="https://www.competethemes.com/apex-live-demo/2015/01/03/great-for-media-based-websites/">Great for Personal &amp; Business Blogs</a>
-                </div>
-                		<div class="post-container">
-			<div class="post-header">
-								<h2 class="post-title">
-					<a href="https://www.competethemes.com/apex-live-demo/2015/01/03/great-for-media-based-websites/">Great for Personal &amp; Business Blogs</a>
-				</h2>
-				<span class="post-date">
-					Published January 3, 2015				</span>
-			</div>
-			<div class="post-content">
-				<p>Proin hendrerit vestibulum blandit. Donec suscipit imperdiet arcu a vestibulum. Sed nec viverra nisl. Nulla id dapibus nulla. Curabitur tempus a libero nec condimentum. Etiam…</p>
-<p><a class="more-link" href="https://www.competethemes.com/apex-live-demo/2015/01/03/great-for-media-based-websites/">Continue reading <span class="screen-reader-text">Great for Personal &amp; Business Blogs</span></a></p>				<span class="comments-link">
-	<i class="fa fa-comment" title="comment icon"></i>
-	<a href="https://www.competethemes.com/apex-live-demo/2015/01/03/great-for-media-based-websites/#comments">Leave a Comment</a></span>			</div>
-		</div>
-	</article>
-	</div><div class="entry post publish author-drop-live-demo post-47 format-standard category-design category-news post_tag-food post_tag-random post_tag-wordpress">
-		<article>
-				<div class="post-container">
-			<div class="post-header">
-								<h2 class="post-title">
-					<a href="https://www.competethemes.com/apex-live-demo/2014/11/17/an-example-blog-post/">Without a Featured Image</a>
-				</h2>
-				<span class="post-date">
-					Published November 17, 2014				</span>
-			</div>
-			<div class="post-content">
-				<p>Quisque dapibus, velit eget ullamcorper suscipit, sapien ligula hendrerit lectus, vitae tristique sapien velit ac lectus. Mauris ullamcorper nisi sit amet est vestibulum interdum. Integer…</p>
-<p><a class="more-link" href="https://www.competethemes.com/apex-live-demo/2014/11/17/an-example-blog-post/">Continue reading <span class="screen-reader-text">Without a Featured Image</span></a></p>				<span class="comments-link">
-	<i class="fa fa-comment" title="comment icon"></i>
-	<a href="https://www.competethemes.com/apex-live-demo/2014/11/17/an-example-blog-post/#comments">3 Comments</a></span>			</div>
-		</div>
-	</article>
-	</div><div class="entry post publish author-drop-live-demo post-26 format-standard has-post-thumbnail category-gaming category-news post_tag-funny post_tag-video-games">
-		<article>
-		
-                <div class="featured-image" style="background-image: url(&#39;https://www.competethemes.com/apex-live-demo/wp-content/uploads/sites/43/2014/07/pier.jpg&#39;)">
-                    <a href="https://www.competethemes.com/apex-live-demo/2014/11/09/upgrade-your-theme-today/">Upgrade Your Theme Today</a>
-                </div>
-                		<div class="post-container">
-			<div class="post-header">
-								<h2 class="post-title">
-					<a href="https://www.competethemes.com/apex-live-demo/2014/11/09/upgrade-your-theme-today/">Upgrade Your Theme Today</a>
-				</h2>
-				<span class="post-date">
-					Published November 9, 2014				</span>
-			</div>
-			<div class="post-content">
-				<p>Suspendisse venenatis quam lacus, ac aliquam mauris vehicula ac. Duis pellentesque est sapien, nec porttitor enim dapibus id. Sed a adipiscing nisl, eu dictum risus.…</p>
-<p><a class="more-link" href="https://www.competethemes.com/apex-live-demo/2014/11/09/upgrade-your-theme-today/">Continue reading <span class="screen-reader-text">Upgrade Your Theme Today</span></a></p>				<span class="comments-link">
-	<i class="fa fa-comment" title="comment icon"></i>
-	<a href="https://www.competethemes.com/apex-live-demo/2014/11/09/upgrade-your-theme-today/#comments">Leave a Comment</a></span>			</div>
-		</div>
-	</article>
-	</div><div class="entry post publish author-drop-live-demo has-excerpt post-38 format-standard has-post-thumbnail category-design post_tag-blogging post_tag-money post_tag-random post_tag-wordpress">
-		<article>
-		
-                <div class="featured-image" style="background-image: url(&#39;https://www.competethemes.com/apex-live-demo/wp-content/uploads/sites/43/2014/07/city-3.jpg&#39;)">
-                    <a href="https://www.competethemes.com/apex-live-demo/2014/07/17/blogging-for-fun-profit/">Blogging for Fun &amp; Profit</a>
-                </div>
-                		<div class="post-container">
-			<div class="post-header">
-								<h2 class="post-title">
-					<a href="https://www.competethemes.com/apex-live-demo/2014/07/17/blogging-for-fun-profit/">Blogging for Fun &amp; Profit</a>
-				</h2>
-				<span class="post-date">
-					Published July 17, 2014				</span>
-			</div>
-			<div class="post-content">
-				<p>Curabitur quis egestas odio, ac tincidunt neque. Cras egestas sapien eu egestas iaculis. Pellentesque et velit adipiscing, imperdiet urna vel, venenatis libero. Fusce semper tortor vel convallis blandit. Nullam vel tempor mi.</p>
-<p><a class="more-link" href="https://www.competethemes.com/apex-live-demo/2014/07/17/blogging-for-fun-profit/">Continue reading <span class="screen-reader-text">Blogging for Fun &amp; Profit</span></a></p>				<span class="comments-link">
-	<i class="fa fa-comment" title="comment icon"></i>
-	<a href="https://www.competethemes.com/apex-live-demo/2014/07/17/blogging-for-fun-profit/#comments">Leave a Comment</a></span>			</div>
-		</div>
-	</article>
-	</div><div class="entry post publish author-drop-live-demo post-35 format-standard has-post-thumbnail category-cooking category-travel post_tag-blogging post_tag-foreign post_tag-overseas">
-		<article>
-		
-                <div class="featured-image" style="background-image: url(&#39;https://www.competethemes.com/apex-live-demo/wp-content/uploads/sites/43/2014/07/ocean.jpg&#39;)">
-                    <a href="https://www.competethemes.com/apex-live-demo/2014/07/17/build-your-blog-your-brand/">A Blog Post Worth Reading</a>
-                </div>
-                		<div class="post-container">
-			<div class="post-header">
-								<h2 class="post-title">
-					<a href="https://www.competethemes.com/apex-live-demo/2014/07/17/build-your-blog-your-brand/">A Blog Post Worth Reading</a>
-				</h2>
-				<span class="post-date">
-					Published July 17, 2014				</span>
-			</div>
-			<div class="post-content">
-				<p>Quisque dapibus, velit eget ullamcorper suscipit, sapien ligula hendrerit lectus, vitae tristique sapien velit ac lectus. Mauris ullamcorper nisi sit amet est vestibulum interdum. Integer…</p>
-<p><a class="more-link" href="https://www.competethemes.com/apex-live-demo/2014/07/17/build-your-blog-your-brand/">Continue reading <span class="screen-reader-text">A Blog Post Worth Reading</span></a></p>				<span class="comments-link">
-	<i class="fa fa-comment" title="comment icon"></i>
-	<a href="https://www.competethemes.com/apex-live-demo/2014/07/17/build-your-blog-your-brand/#comments">Leave a Comment</a></span>			</div>
-		</div>
-	</article>
-	</div><div class="entry post publish author-drop-live-demo post-32 format-standard has-post-thumbnail category-gaming category-travel post_tag-new post_tag-video-games">
-		<article>
-		
-                <div class="featured-image" style="background-image: url(&#39;https://www.competethemes.com/apex-live-demo/wp-content/uploads/sites/43/2014/07/puppy.jpg&#39;)">
-                    <a href="https://www.competethemes.com/apex-live-demo/2014/07/17/sharing-is-caring/">Sharing is Caring</a>
-                </div>
-                		<div class="post-container">
-			<div class="post-header">
-								<h2 class="post-title">
-					<a href="https://www.competethemes.com/apex-live-demo/2014/07/17/sharing-is-caring/">Sharing is Caring</a>
-				</h2>
-				<span class="post-date">
-					Published July 17, 2014				</span>
-			</div>
-			<div class="post-content">
-				<p>Suspendisse venenatis quam lacus, ac aliquam mauris vehicula ac. Duis pellentesque est sapien, nec porttitor enim dapibus id. Sed a adipiscing nisl, eu dictum risus.…</p>
-<p><a class="more-link" href="https://www.competethemes.com/apex-live-demo/2014/07/17/sharing-is-caring/">Continue reading <span class="screen-reader-text">Sharing is Caring</span></a></p>				<span class="comments-link">
-	<i class="fa fa-comment" title="comment icon"></i>
-	<a href="https://www.competethemes.com/apex-live-demo/2014/07/17/sharing-is-caring/#comments">Leave a Comment</a></span>			</div>
-		</div>
-	</article>
-	</div><div class="entry post publish author-drop-live-demo post-22 format-standard has-post-thumbnail category-news post_tag-funny post_tag-new post_tag-wordpress">
-		<article>
-		
-                <div class="featured-image" style="background-image: url(&#39;https://www.competethemes.com/apex-live-demo/wp-content/uploads/sites/43/2014/07/birds.jpg&#39;)">
-                    <a href="https://www.competethemes.com/apex-live-demo/2014/07/17/another-example-blog-post/">Another Example Blog Post</a>
-                </div>
-                		<div class="post-container">
-			<div class="post-header">
-								<h2 class="post-title">
-					<a href="https://www.competethemes.com/apex-live-demo/2014/07/17/another-example-blog-post/">Another Example Blog Post</a>
-				</h2>
-				<span class="post-date">
-					Published July 17, 2014				</span>
-			</div>
-			<div class="post-content">
-				<p>Nullam condimentum eget felis ac rhoncus. Vestibulum tincidunt, purus feugiat cursus dignissim, dui dolor dapibus felis, vel convallis velit est vitae nulla. Cras tincidunt turpis…</p>
-<p><a class="more-link" href="https://www.competethemes.com/apex-live-demo/2014/07/17/another-example-blog-post/">Continue reading <span class="screen-reader-text">Another Example Blog Post</span></a></p>				<span class="comments-link">
-	<i class="fa fa-comment" title="comment icon"></i>
-	<a href="https://www.competethemes.com/apex-live-demo/2014/07/17/another-example-blog-post/#comments">Leave a Comment</a></span>			</div>
-		</div>
-	</article>
-	</div>
-<nav class="pagination loop-pagination"><span class="page-numbers current">1</span>
-<a class="page-numbers" href="https://www.competethemes.com/apex-live-demo/page/2/">2</a>
-<a class="next page-numbers" href="https://www.competethemes.com/apex-live-demo/page/2/">Next »</a></nav>
-</section> <!-- .main -->
+            <footer class="site-footer" role="contentinfo">
+                    <div class="design-credit">
+                    <span>
+                        <a href="https://www.competethemes.com/apex/">Apex WordPress Theme</a>
+                        by Compete Themes
+                    </span>
+                    </div>
+            </footer>
+        </div>
+    </div><!-- .overflow-container -->
 
 
-    <aside class="sidebar sidebar-primary" id="sidebar-primary" role="complementary">
 
-        <section id="text-3" class="widget widget_text"><h3 class="widget-title">About Apex</h3>			<div class="textwidget"><p>Apex is a sophisticated, minimalist theme. </p>
-<p>It looks great and performs wonderfully on phones, tablets, laptops, and everything in between. </p>
-<p>As a fast, responsive, accessibility-ready, and translation-ready theme, Apex is a theme you can trust to present your content to the world.</p>
-</div>
-		</section><section id="search-4" class="widget widget_search"><h3 class="widget-title">Search</h3><div class="search-form-container">
-    <form role="search" method="get" class="search-form" action="/static/css/Apex Live Demo_ Sophisticated and minimalist.html">
-        <label class="screen-reader-text" for="search-field">Search</label>
-        <input id="search-field" type="search" class="search-field" value="" name="s" title="Search for:">
-        <input type="submit" class="search-submit" value="Go">
-    </form>
-</div></section>		<section id="recent-posts-4" class="widget widget_recent_entries">		<h3 class="widget-title">Recent Posts</h3>		<ul>
-					<li>
-				<a href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/">From State to State</a>
-						</li>
-					<li>
-				<a href="https://www.competethemes.com/apex-live-demo/2015/02/01/the-tracks-theme-is-awesome/">Work, Productivity, and Decision Making</a>
-						</li>
-					<li>
-				<a href="https://www.competethemes.com/apex-live-demo/2015/01/17/change-your-look/">New Lessons and Perspectives</a>
-						</li>
-					<li>
-				<a href="https://www.competethemes.com/apex-live-demo/2015/01/03/great-for-media-based-websites/">Great for Personal &amp; Business Blogs</a>
-						</li>
-					<li>
-				<a href="https://www.competethemes.com/apex-live-demo/2014/11/17/an-example-blog-post/">Without a Featured Image</a>
-						</li>
-				</ul>
-		</section><section id="categories-4" class="widget widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
-	<li class="cat-item cat-item-2"><a href="https://www.competethemes.com/apex-live-demo/category/cooking/">cooking</a> (2)
-</li>
-	<li class="cat-item cat-item-3"><a href="https://www.competethemes.com/apex-live-demo/category/design/">design</a> (3)
-</li>
-	<li class="cat-item cat-item-4"><a href="https://www.competethemes.com/apex-live-demo/category/fashion/">fashion</a> (2)
-</li>
-	<li class="cat-item cat-item-5"><a href="https://www.competethemes.com/apex-live-demo/category/gaming/">gaming</a> (3)
-</li>
-	<li class="cat-item cat-item-6"><a href="https://www.competethemes.com/apex-live-demo/category/news/">news</a> (5)
-</li>
-	<li class="cat-item cat-item-7"><a href="https://www.competethemes.com/apex-live-demo/category/travel/">travel</a> (4)
-</li>
-		</ul>
-</section><section id="tag_cloud-3" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3><div class="tagcloud"><a href="https://www.competethemes.com/apex-live-demo/tag/blogging/" class="tag-link-8" title="5 topics" style="font-size: 22pt;">blogging</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/cooking/" class="tag-link-9" title="1 topic" style="font-size: 8pt;">cooking</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/fashion/" class="tag-link-10" title="3 topics" style="font-size: 16.75pt;">fashion</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/food/" class="tag-link-11" title="3 topics" style="font-size: 16.75pt;">food</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/foreign/" class="tag-link-12" title="2 topics" style="font-size: 13.25pt;">foreign</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/funny/" class="tag-link-13" title="3 topics" style="font-size: 16.75pt;">funny</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/images/" class="tag-link-14" title="2 topics" style="font-size: 13.25pt;">images</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/money/" class="tag-link-15" title="1 topic" style="font-size: 8pt;">money</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/new/" class="tag-link-16" title="3 topics" style="font-size: 16.75pt;">new</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/overseas/" class="tag-link-17" title="1 topic" style="font-size: 8pt;">overseas</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/random/" class="tag-link-18" title="2 topics" style="font-size: 13.25pt;">random</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/video-games/" class="tag-link-19" title="2 topics" style="font-size: 13.25pt;">video games</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/wordpress/" class="tag-link-20" title="5 topics" style="font-size: 22pt;">wordpress</a></div>
-</section>
-    </aside><!-- #sidebar-primary -->
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-migrate.min.js"></script>
+    <!--自定义js-->
+    {% block custom_js %}
+    {% endblock %}
 
-
-<footer class="site-footer" role="contentinfo">
-	    <div class="design-credit">
-        <span>
-            <a href="https://www.competethemes.com/apex/">Apex WordPress Theme</a> by Compete Themes        </span>
-    </div>
-</footer>
-</div>
-</div><!-- .overflow-container -->
-
-
-<script type="text/javascript">
-/* <![CDATA[ */
-var objectL10n = {"openMenu":"open menu","closeMenu":"close menu","openChildMenu":"open dropdown menu","closeChildMenu":"close dropdown menu"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="/static/js/production.min.js"></script>
 <!--[if IE 8]>
 <script type='text/javascript' src='https://www.competethemes.com/apex-live-demo/wp-content/themes/apex/js/build/respond.min.js?ver=4.3.1'></script>
 <![endif]-->
 
 
-</body></html>
+</body>
+</html>

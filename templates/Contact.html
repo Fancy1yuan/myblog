@@ -1,262 +1,67 @@
-<!DOCTYPE html>
-<!-- saved from url=(0053)https://www.competethemes.com/apex-live-demo/contact/ -->
-<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+{% extends 'base.html' %}
 
-    <meta charset="UTF-8">
-<title>Contact</title>
-<meta name="robots" content="noindex,follow">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="template" content="Apex 1.09">
-<meta name="generator" content="WordPress 4.3.1">
-<link rel="alternate" type="application/rss+xml" title="Apex Live Demo » Feed" href="https://www.competethemes.com/apex-live-demo/feed/">
-<link rel="alternate" type="application/rss+xml" title="Apex Live Demo » Comments Feed" href="https://www.competethemes.com/apex-live-demo/comments/feed/">
-<link rel="pingback" href="https://www.competethemes.com/apex-live-demo/xmlrpc.php">
-		<script async="" src="/static/js/analytics.js"></script><script type="text/javascript">
-			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"https:\/\/www.competethemes.com\/apex-live-demo\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.3.1"}};
-			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
-		</script><script src="/static/js/wp-emoji-release.min.js" type="text/javascript"></script>
-		<style type="text/css">
-img.wp-smiley,
-img.emoji {
-	display: inline !important;
-	border: none !important;
-	box-shadow: none !important;
-	height: 1em !important;
-	width: 1em !important;
-	margin: 0 .07em !important;
-	vertical-align: -0.1em !important;
-	background: none !important;
-	padding: 0 !important;
-}
-</style>
-<link rel="stylesheet" id="ct-apex-google-fonts-css" href="/static/css/css" type="text/css" media="all">
-<link rel="stylesheet" id="font-awesome-css" href="/static/css/font-awesome.min.css" type="text/css" media="all">
-<link rel="stylesheet" id="ct-apex-style-css" href="/static/css/style.min.css" type="text/css" media="all">
-<!-- This site uses the Google Analytics by Yoast plugin v5.4.6 - Universal enabled - https://yoast.com/wordpress/plugins/google-analytics/ -->
-<script type="text/javascript">
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
 
-	__gaTracker('create', 'UA-43641968-9', 'auto');
-	__gaTracker('set', 'forceSSL', true);
-	__gaTracker('send','pageview');
+{% block custom_css %}
+{% endblock %}
 
-</script>
-<!-- / Google Analytics by Yoast -->
-<script type="text/javascript" src="/static/image/jquery.js"></script>
-<script type="text/javascript" src="/static/js/jquery-migrate.min.js"></script>
-<!--[if IE 8]>
-<script type='text/javascript' src='https://www.competethemes.com/apex-live-demo/wp-content/themes/apex/js/build/html5shiv.min.js?ver=4.3.1'></script>
-<![endif]-->
-<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.competethemes.com/apex-live-demo/xmlrpc.php?rsd">
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.competethemes.com/apex-live-demo/wp-includes/wlwmanifest.xml"> 
-<link rel="canonical" href="/static/css/Contact.html">
-<link rel="shortlink" href="https://www.competethemes.com/apex-live-demo/?p=68">
-	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
 
-<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><link rel="stylesheet" type="text/css" href="chrome-extension://fidicgekecdkdmkjghdgadgdmcfodfid/themes/default/content.css"></head>
+{% block title %}
+    Contact
+{% endblock %}
 
-<body id="apex" class="wordpress ltr en en-us parent-theme multisite blog-43 y2015 m09 d24 h02 thursday logged-out singular singular-page singular-page-68">
 
-	
-	<!--skip to content link-->
-	<a class="skip-content" href="https://www.competethemes.com/apex-live-demo/contact/#main">Skip to content</a>
+{% block menu %}
+    <ul id="menu-primary-items" class="menu-primary-items">
+        <li id="menu-item-111" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-111"><a href="/static/css/Apex Live Demo_ Sophisticated and minimalist.html">Home</a></li>
+        <li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113"><a href="https://www.competethemes.com/apex-live-demo/about/">About</a></li>
+        <li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113 current-menu-item"><a href="https://www.competethemes.com/apex-live-demo/about/">Contact me</a></li>
+    </ul>
+{% endblock %}
 
-	<div id="overflow-container" class="overflow-container">
-		<div id="max-width" class="max-width">
-						<header class="site-header" id="site-header" role="banner">
 
-				<div id="menu-primary-container" class="menu-primary-container">
-
-					<!-- Primary Menu -->
-					<div id="menu-primary" class="menu-container menu-primary" role="navigation">
-
-    <nav class="menu"><ul id="menu-primary-items" class="menu-primary-items"><li id="menu-item-111" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-111"><a href="https://www.competethemes.com/apex-live-demo/">Home</a></li>
-<li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113"><a href="https://www.competethemes.com/apex-live-demo/about/">About</a></li>
-<li id="menu-item-112" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-112"><a href="https://www.competethemes.com/apex-live-demo/sample-page-2/">Services</a><button class="toggle-dropdown" aria-expanded="false" name="toggle-dropdown" tabindex="-1"><span class="screen-reader-text">open dropdown menu</span></button>
-<ul class="sub-menu">
-	<li id="menu-item-136" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-136"><a href="https://www.competethemes.com/apex-live-demo/dropdown-example-1/">Dropdown Example 1</a></li>
-	<li id="menu-item-135" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-135"><a href="https://www.competethemes.com/apex-live-demo/dropdown-example-2/">Example Two</a></li>
-	<li id="menu-item-138" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-138"><a href="https://www.competethemes.com/apex-live-demo/another-page/">Another Page</a><button class="toggle-dropdown" aria-expanded="false" name="toggle-dropdown" tabindex="-1"><span class="screen-reader-text">open dropdown menu</span></button>
-	<ul class="sub-menu">
-		<li id="menu-item-137" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137"><a href="https://www.competethemes.com/apex-live-demo/third-tier-example/">Third Tier Example</a></li>
-	</ul>
-</li>
-</ul>
-</li>
-<li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-68 current_page_item menu-item-114"><a href="/static/css/Contact.html">Contact</a></li>
-</ul></nav>
-</div><!-- #menu-primary .menu-container -->
-
-					<!-- Social Icons -->
-					<ul class="social-media-icons">
-						<li>
-                        <a class="twitter" target="_blank" href="http:/#">
-                            <i class="fa fa-twitter" title="twitter icon"></i>
-                        </a>
-                    </li>
-                                    <li>
-                        <a class="pinterest" target="_blank" href="http:/#">
-                            <i class="fa fa-pinterest" title="pinterest icon"></i>
-                        </a>
-                    </li>
-                                    <li>
-                        <a class="instagram" target="_blank" href="http:/#">
-                            <i class="fa fa-instagram" title="instagram icon"></i>
-                        </a>
-                    </li>
-                                    <li>
-                        <a class="rss" target="_blank" href="http:/#">
-                            <i class="fa fa-rss" title="rss icon"></i>
-                        </a>
-                    </li>
-                </ul>
-				</div>
-
-				<button id="toggle-navigation" class="toggle-navigation">
-					<span class="screen-reader-text">open menu</span>
-					<svg width="24px" height="18px" viewBox="0 0 24 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-				    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-				        <g transform="translate(-148.000000, -36.000000)" fill="#6B6B6B">
-				            <g transform="translate(123.000000, 25.000000)">
-				                <g transform="translate(25.000000, 11.000000)">
-				                    <rect x="0" y="16" width="24" height="2"></rect>
-				                    <rect x="0" y="8" width="24" height="2"></rect>
-				                    <rect x="0" y="0" width="24" height="2"></rect>
-				                </g>
-				            </g>
-				        </g>
-				    </g>
-				</svg>				</button>
-
-				<div id="title-container" class="title-container">
-					<h1 id="site-title" class="site-title"><a href="https://www.competethemes.com/apex-live-demo" title="Apex Live Demo">Apex Live Demo</a></h1>					<p class="tagline">Sophisticated and minimalist</p>				</div>
-			</header>
-						<section id="main" class="main" role="main">
-				<div class="entry page publish author-drop-live-demo post-68">
-		<article>
+{% block main %}
+    <section id="main" class="main" role="main">
+        <div class="entry page publish author-drop-live-demo post-68">
+		    <article>
 				<div class="post-container">
-			<div class="post-header">
-				<h2 class="post-title">Contact</h2>
-			</div>
-			<div class="post-content">
-				<p>This is an example of a simple contact page using the Simple Basic Contact Form&nbsp;plugin.</p>
-
-		<div id="simple-contact-form" class="scf">
-			<form action="" method="post">
-				<fieldset class="scf-name">
-					<label for="scf_name">Name (Required)</label>
-					<input name="scf_name" id="scf_name" type="text" size="33" maxlength="99" value="" placeholder="Your Name">
-				</fieldset>
-				<fieldset class="scf-email">
-					<label for="scf_email">Email (Required)</label>
-					<input name="scf_email" id="scf_email" type="text" size="33" maxlength="99" value="" placeholder="Your Email">
-				</fieldset>
-				<fieldset class="scf-response">
-					<label for="scf_response">1 + 1 =</label>
-					<input name="scf_response" id="scf_response" type="text" size="33" maxlength="99" value="" placeholder="Correct Response">
-				</fieldset>
-				<fieldset class="scf-message">
-					<label for="scf_message">Message (Required)</label>
-					<textarea name="scf_message" id="scf_message" cols="33" rows="7" placeholder="Your Message"></textarea>
-				</fieldset>
-				<div class="scf-submit">
-					<input type="submit" name="Submit" id="scf_contact" value="Send email">
-					<input type="hidden" name="scf_key" value="process">
-					<input type="hidden" id="scf-nonce" name="scf-nonce" value="7b4ef9142d">
-				</div>
-			</form>
-		</div>
-		<style>#simple-contact-form fieldset { width: 100%; overflow: hidden; margin: 12px 0; border: 0; padding: 1px; } #simple-contact-form fieldset input { float: left; width: 60%; } #simple-contact-form textarea { float: left; clear: both; width: 95%; } #simple-contact-form label { float: none; clear: both; display: block; margin-bottom: 12px;}</style><div style="clear:both">&nbsp;</div>
-							</div>
-		</div>
-			</article>
-	</div>
-
-</section> <!-- .main -->
-
-
-    <aside class="sidebar sidebar-primary" id="sidebar-primary" role="complementary">
-
-        <section id="text-3" class="widget widget_text"><h3 class="widget-title">About Apex</h3>			<div class="textwidget"><p>Apex is a sophisticated, minimalist theme. </p>
-<p>It looks great and performs wonderfully on phones, tablets, laptops, and everything in between. </p>
-<p>As a fast, responsive, accessibility-ready, and translation-ready theme, Apex is a theme you can trust to present your content to the world.</p>
-</div>
-		</section><section id="search-4" class="widget widget_search"><h3 class="widget-title">Search</h3><div class="search-form-container">
-    <form role="search" method="get" class="search-form" action="https://www.competethemes.com/apex-live-demo/">
-        <label class="screen-reader-text" for="search-field">Search</label>
-        <input id="search-field" type="search" class="search-field" value="" name="s" title="Search for:">
-        <input type="submit" class="search-submit" value="Go">
-    </form>
-</div></section>		<section id="recent-posts-4" class="widget widget_recent_entries">		<h3 class="widget-title">Recent Posts</h3>		<ul>
-					<li>
-				<a href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/">From State to State</a>
-						</li>
-					<li>
-				<a href="https://www.competethemes.com/apex-live-demo/2015/02/01/the-tracks-theme-is-awesome/">Work, Productivity, and Decision Making</a>
-						</li>
-					<li>
-				<a href="https://www.competethemes.com/apex-live-demo/2015/01/17/change-your-look/">New Lessons and Perspectives</a>
-						</li>
-					<li>
-				<a href="https://www.competethemes.com/apex-live-demo/2015/01/03/great-for-media-based-websites/">Great for Personal &amp; Business Blogs</a>
-						</li>
-					<li>
-				<a href="https://www.competethemes.com/apex-live-demo/2014/11/17/an-example-blog-post/">Without a Featured Image</a>
-						</li>
-				</ul>
-		</section><section id="categories-4" class="widget widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
-	<li class="cat-item cat-item-2"><a href="https://www.competethemes.com/apex-live-demo/category/cooking/">cooking</a> (2)
-</li>
-	<li class="cat-item cat-item-3"><a href="https://www.competethemes.com/apex-live-demo/category/design/">design</a> (3)
-</li>
-	<li class="cat-item cat-item-4"><a href="https://www.competethemes.com/apex-live-demo/category/fashion/">fashion</a> (2)
-</li>
-	<li class="cat-item cat-item-5"><a href="https://www.competethemes.com/apex-live-demo/category/gaming/">gaming</a> (3)
-</li>
-	<li class="cat-item cat-item-6"><a href="https://www.competethemes.com/apex-live-demo/category/news/">news</a> (5)
-</li>
-	<li class="cat-item cat-item-7"><a href="https://www.competethemes.com/apex-live-demo/category/travel/">travel</a> (4)
-</li>
-		</ul>
-</section><section id="tag_cloud-3" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3><div class="tagcloud"><a href="https://www.competethemes.com/apex-live-demo/tag/blogging/" class="tag-link-8" title="5 topics" style="font-size: 22pt;">blogging</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/cooking/" class="tag-link-9" title="1 topic" style="font-size: 8pt;">cooking</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/fashion/" class="tag-link-10" title="3 topics" style="font-size: 16.75pt;">fashion</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/food/" class="tag-link-11" title="3 topics" style="font-size: 16.75pt;">food</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/foreign/" class="tag-link-12" title="2 topics" style="font-size: 13.25pt;">foreign</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/funny/" class="tag-link-13" title="3 topics" style="font-size: 16.75pt;">funny</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/images/" class="tag-link-14" title="2 topics" style="font-size: 13.25pt;">images</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/money/" class="tag-link-15" title="1 topic" style="font-size: 8pt;">money</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/new/" class="tag-link-16" title="3 topics" style="font-size: 16.75pt;">new</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/overseas/" class="tag-link-17" title="1 topic" style="font-size: 8pt;">overseas</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/random/" class="tag-link-18" title="2 topics" style="font-size: 13.25pt;">random</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/video-games/" class="tag-link-19" title="2 topics" style="font-size: 13.25pt;">video games</a>
-<a href="https://www.competethemes.com/apex-live-demo/tag/wordpress/" class="tag-link-20" title="5 topics" style="font-size: 22pt;">wordpress</a></div>
-</section>
-    </aside><!-- #sidebar-primary -->
+                    <div class="post-header">
+                        <h2 class="post-title">Contact</h2>
+                    </div>
+		        	<div class="post-content">
+				        <p>This is an example of a simple contact page using the Simple Basic Contact Form&nbsp;plugin.</p>
+                        <div id="simple-contact-form" class="scf">
+                            <form action="" method="post">
+                                <fieldset class="scf-name">
+                                    <label for="scf_name">Name (Required)</label>
+                                    <input name="scf_name" id="scf_name" type="text" size="33" maxlength="99" value="" placeholder="Your Name">
+                                </fieldset>
+                                <fieldset class="scf-email">
+                                    <label for="scf_email">Email (Required)</label>
+                                    <input name="scf_email" id="scf_email" type="text" size="33" maxlength="99" value="" placeholder="Your Email">
+                                </fieldset>
+                                <fieldset class="scf-response">
+                                    <label for="scf_response">1 + 1 =</label>
+                                    <input name="scf_response" id="scf_response" type="text" size="33" maxlength="99" value="" placeholder="Correct Response">
+                                </fieldset>
+                                <fieldset class="scf-message">
+                                    <label for="scf_message">Message (Required)</label>
+                                    <textarea name="scf_message" id="scf_message" cols="33" rows="7" placeholder="Your Message"></textarea>
+                                </fieldset>
+                                <div class="scf-submit">
+                                    <input type="submit" name="Submit" id="scf_contact" value="Send email">
+                                    <input type="hidden" name="scf_key" value="process">
+                                    <input type="hidden" id="scf-nonce" name="scf-nonce" value="7b4ef9142d">
+                                </div>
+                            </form>
+                        </div>
+                        <style>#simple-contact-form fieldset { width: 100%; overflow: hidden; margin: 12px 0; border: 0; padding: 1px; } #simple-contact-form fieldset input { float: left; width: 60%; } #simple-contact-form textarea { float: left; clear: both; width: 95%; } #simple-contact-form label { float: none; clear: both; display: block; margin-bottom: 12px;}</style><div style="clear:both">&nbsp;</div>
+                    </div>
+                </div>
+            </article>
+	    </div>
+    </section> <!-- .main -->
+{% endblock %}
 
 
-<footer class="site-footer" role="contentinfo">
-	    <div class="design-credit">
-        <span>
-            <a href="https://www.competethemes.com/apex/">Apex WordPress Theme</a> by Compete Themes        </span>
-    </div>
-</footer>
-</div>
-</div><!-- .overflow-container -->
-
-
-<script type="text/javascript">
-/* <![CDATA[ */
-var objectL10n = {"openMenu":"open menu","closeMenu":"close menu","openChildMenu":"open dropdown menu","closeChildMenu":"close dropdown menu"};
-/* ]]> */
-</script>
-<script type="text/javascript" src="/static/js/production.min.js"></script>
-<!--[if IE 8]>
-<script type='text/javascript' src='https://www.competethemes.com/apex-live-demo/wp-content/themes/apex/js/build/respond.min.js?ver=4.3.1'></script>
-<![endif]-->
-
-
-</body></html>
+{% block custom_js %}
+{% endblock %}
