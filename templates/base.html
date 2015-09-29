@@ -60,7 +60,7 @@
 
 
 				<div id="title-container" class="title-container">
-					<h1 id="site-title" class="site-title" ><a href="https://www.competethemes.com/apex-live-demo" title="Apex Live Demo">Apex Live Demo</a></h1>
+					<h1 id="site-title" class="site-title"><a href="https://www.competethemes.com/apex-live-demo" title="Apex Live Demo">Apex Live Demo</a></h1>
                     <p class="tagline">Sophisticated and minimalist</p>
                 </div>
             </header>
@@ -88,8 +88,13 @@
 
 
 
-    <script type="text/javascript" src="/static/js/jquery.js"></script>
-    <script type="text/javascript" src="/static/js/jquery-migrate.min.js"></script>
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/jquery-2.1.4.min.js"></script>
+    <script src="/static/js/jquery-migrate.min.js"></script>
+    <script src="/static/js/jquery.artwl.thickbox.js"></script>
+    <script type="text/javascript">
+        $.artwl_bind({ showbtnid: "login", title: "From Cnblogs Artwl", content: $("#myModeal").html() });
+    </script>
     <!--自定义js-->
     {% block custom_js %}
     {% endblock %}
