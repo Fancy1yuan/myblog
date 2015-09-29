@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+
+{% block custom_css %}
+{% endblock %}
+
+
+{% block title %}
+    Register
+{% endblock %}
+
+
+{% block menu %}
+    <ul id="menu-primary-items" class="menu-primary-items">
+        <li id="menu-item-111" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-111"><a href="/static/css/Apex Live Demo_ Sophisticated and minimalist.html">Home</a></li>
+        <li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113"><a href="https://www.competethemes.com/apex-live-demo/about/">About</a></li>
+        <li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113"><a href="https://www.competethemes.com/apex-live-demo/about/">Contact me</a></li>
+    </ul>
+{% endblock %}
+
+
+{% block main %}
+    <section id="main" class="main" role="main">
+        <div class="entry post publish author-drop-live-demo post-44 format-standard has-post-thumbnail sticky category-cooking category-news post_tag-blogging post_tag-funny post_tag-new">
+            <div style="height: 100px">
+                <h3 align="center">用户注册</h3>
+            </div>
+            <div id="simple-contact-form" class="scf">
+                <form id="register" action="" method="post">
+                    {% csrf_token %}
+                    <p>昵称</p>
+                    {{ form.username }}
+
+                    <p>姓</p>
+                    {{ form.last_name }}
+
+                    <p>名</p>
+                    {{ form.first_name }}
+
+                    <p>密码</p>
+                    {{ form.password }}
+
+                    <p>请再次输入密码</p>
+                    <input id="id_password1" type="password" maxlength="50" minlength="8">
+                    <span id="psd_error" style="display: none;color: red">两次输入密码不一致！！！</span>
+
+                    <p>邮箱</p>
+                    {{ form.email }}
+
+                    <p>QQ</p>
+                    {{ form.qq }}
+
+                    <p>电话号码</p>
+                    {{ form.phone_num }}
+                    <br></br>
+                    <button type="button" onclick="checkoutpwd()">注 册</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block custom_js %}
+    <script src="/static/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+        function checkoutpwd(){
+            var psd1 = $("#id_password").val();
+            var psd2 = $("#id_password1").val();
+            if (psd1==psd2){
+                console.log('yes');
+                $("#register").submit();
+            }else{
+                $("#psd_error").show();
+            }
+
+        }
+    </script>
+{% endblock %}
