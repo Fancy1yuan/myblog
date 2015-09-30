@@ -90,7 +90,7 @@
                         {% endif %}
                         <p class="comment-form-comment">
                             <label>Comment</label>
-                            <textarea required="" id="comment" name="content" cols="45" rows="8" aria-required="true" placeholder="no more than 200 words"></textarea>
+                            <textarea required="" id="comment" name="content" cols="45" rows="8" aria-required="true" min_length="10" placeholder="no more than 200 words"></textarea>
                         </p>
                         <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment">
                         </p>
@@ -107,7 +107,4 @@
 {% endblock %}
 
 {% block custom_js %}
-    <script type="text/javascript">
-        console.log({{ article.tag }});
-    </script>
 {% endblock %}

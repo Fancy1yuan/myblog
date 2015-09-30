@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block custom_css %}
+{% endblock %}
+
+
+{% block title %}
+    ArticlePublis
+{% endblock %}
+
+
+{% block menu %}
+    <ul id="menu-primary-items" class="menu-primary-items">
+        <li id="menu-item-111" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-111"><a href="/blog/">Home</a></li>
+        <li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113"><a href="/blog/about/">About</a></li>
+        <li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113"><a href="/blog/contact/">Contact me</a></li>
+    </ul>
+{% endblock %}
+
+
+{% block main %}
+    <section id="main" class="main" role="main">
+        <div class="entry post publish author-drop-live-demo post-44 format-standard has-post-thumbnail sticky category-cooking category-news post_tag-blogging post_tag-funny post_tag-new">
+            <form action="" method="post">
+                {% csrf_token %}
+                <p>Title*: <input type="text" name="title" maxlength="50"></p>
+                <p>Img*: <input type="file" name="img"></p>
+                <p>Content*: <textarea class="vLargeTextField" cols="40" id="id_content" name="content" rows="10"></textarea></p>
+
+
+            </form>
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block custom_js %}
+{% endblock %}

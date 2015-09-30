@@ -6,6 +6,7 @@ from django.contrib.auth.models import User, AbstractUser
 
 class UserProfile(AbstractUser):
     avatar = models.ImageField(upload_to='avatar/%Y/%m', default='avatar/default.png', max_length=200, blank=True, null=True, verbose_name='头像')
+    description = models.CharField("个人简介", default="nothing,", max_length=200)
     qq = models.CharField(max_length=20, blank=True, null=True, verbose_name='QQ号码')
     phone_num = models.CharField(max_length=11, blank=True, null=True, verbose_name='手机号码')
 

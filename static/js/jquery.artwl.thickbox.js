@@ -14,7 +14,7 @@
                                           <h2 align="center">\
                                               Login</h2>\
                                       </div>\
-                                      <div id="artwl_message" class="search-form-container">\
+                                      <div id="artwl_message" class="search-form-container"> \
                                       <form class="search-form" action="/blog/login/" method="post">\
                                         <input type="text" name="username" maxlength="30" placeholder="请输入用户名">\
                                         <input type="password" name="password" maxlength="50" placeholder="密码">\

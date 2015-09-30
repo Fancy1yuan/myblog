@@ -6,6 +6,7 @@ from forms import UserProfileForm
 from models import UserProfile, Article, Comment, Tag, Catagory
 from django.views.generic.base import View
 from django.core.context_processors import csrf
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -15,6 +16,7 @@ def index(request):
     else:
         #display bloghost's info if not login
         user = UserProfile.objects.get(id=2)
+        setattr(user, "is_authenticated", False)
     return render(request, 'Index.html', {'user': user})
 
 def detail(request):
@@ -51,7 +53,7 @@ class ArticleView(View):
             return HttpResponseRedirect('/blog/article/')
         article_id = int(article_id)
         article = Article.objects.get(id=article_id)
-        #handle loged user's comment
+        # handle loged user's comment
         if request.user.is_authenticated():
             user = request.user
             comment = Comment.objects.create(user=user.id, username=user.username, useremail=user.email,
@@ -64,8 +66,22 @@ class ArticleView(View):
             comment = Comment.objects.create(username=username, useremail=email,
                                              content=content, artcile=article)
             comment.save()
-        #return current article
+        # return current article
         return HttpResponseRedirect('/blog/article/?id=%s' % article_id)
+
+
+class ArticlePublish(View):
+    template = 'ArticlePublish.html'
+
+    def get(self, request):
+        user = request.user
+        if user.is_authenticated():
+            return render(request, self.template, {'user': user})
+        else:
+            return HttpResponseRedirect('/blog/')
+
+    def post(self, request):
+        pass
 
 
 def about(request):
@@ -115,26 +131,30 @@ class RegisterView(View):
                 pass
 
 
-def login(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(username=username, password=password)
-    if user is not None:
-        if user.is_active():
-            login(request, user)
-            # Redirect to a success page.
-            return HttpResponseRedirect('/blog/')
+@csrf_exempt    # 没做出登陆弹窗，没法加{% csrf_token %},暂时舍弃该功能
+def cus_login(request):
+    try:
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                # return to success page
+                return HttpResponseRedirect('/blog/')
 
+            else:
+                return HttpResponse('<h3>您已被禁，请联系管理员。</h3>')
         else:
-            return HttpResponse('<h3>您已被禁，请联系管理员。</h3>')
-    else:
-        return HttpResponse('chucuola')
+            return HttpResponse('chucuola')
+    except Exception as e:
+        return HttpResponseRedirect('/blog/')
 
 
-def logout(request):
+def cus_logout(request):
     logout(request)
     # Redirect to a success page.
-
+    return HttpResponseRedirect('/blog/')
 
 def page_not_found(request):
     return render(request, '404.html')
