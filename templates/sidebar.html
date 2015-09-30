@@ -12,9 +12,11 @@
             <p>As a fast, responsive, accessibility-ready, and translation-ready theme, Apex is a theme you can trust to present your content to the world.</p>
         </div>
     </section>
-    <section id="search-4" class="widget widget_search">
-        <button class="register_login" id="login" data-toggle="modal" data-target="#login-modal">登 陆</button>  <button class="register_login" onclick="window.open('/blog/register/')">注册</button>
-    </section>
+    {% if not user.is_authenticated %}
+        <section id="search-4" class="widget widget_search">
+            <button class="register_login" id="login" data-toggle="modal" data-target="#login-modal">登 陆</button>  <button class="register_login" onclick="window.open('/blog/register/')">注册</button>
+        </section>
+    {% endif %}
     <section id="search-4" class="widget widget_search">
         <h3 class="widget-title">Search</h3>
         <div class="search-form-container">

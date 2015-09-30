@@ -47,6 +47,7 @@ class Article(models.Model):
     title = models.CharField("标题", max_length=50)
     author = models.ForeignKey(UserProfile, verbose_name="作者")
     content = models.TextField("文章内容")
+    img = models.ImageField("文章题图", upload_to='article/%Y/%m', default= 'article/default.png', max_length=1024*5)
     tags = models.ManyToManyField(Tag, "标签")
     catagory = models.ForeignKey(Catagory, verbose_name="分类")
     publish_time = models.DateTimeField("发表时间", auto_now_add=True)

@@ -9,135 +9,105 @@
     <section id="main" class="main" role="main">
         <div class="entry post publish author-drop-live-demo post-19 format-standard has-post-thumbnail category-fashion category-gaming post_tag-blogging post_tag-cooking post_tag-fashion post_tag-food">
 		    <article>
-                <div class="featured-image" style="background-image: url(&#39;https://www.competethemes.com/apex-live-demo/wp-content/uploads/sites/43/2015/02/imac.jpg&#39;)">
+                <div class="featured-image" style="background-image: url(/uploads/{{ article.img }}">
+{#                    <img src="/uploads/{{ article.img }}">#}
                 </div>
                 <div class="post-container">
                     <div class="post-header">
-                        <h2 class="post-title">Work, Productivity, and Decision Making</h2>
+                        <h2 class="post-title">{{ article.title }}</h2>
                         <span class="post-date">
-                            Published February 1, 2015				</span>
+                            Published {{ article.publish_time | date:"F d, Y" }}				</span>
                     </div>
                     <div class="post-content">
-                        <p>Quisque dapibus, velit eget ullamcorper suscipit, sapien ligula hendrerit lectus, vitae tristique sapien velit ac lectus. Mauris ullamcorper nisi sit amet est vestibulum interdum. Integer venenatis rutrum ipsum. Pellentesque sollicitudin turpis eu nibh ornare, eu pretium risus pharetra.</p>
-                        <p><a href="http://www.competethemes.com/apex-live-demo/wp-content/uploads/sites/43/2015/02/ocean-cliff.jpeg"><img class="aligncenter size-large wp-image-111" src="/static/image/ocean-cliff-1024x683.jpeg" alt="ocean-cliff" width="1024" height="683"></a></p>
-                        <p>Est egestas, non facilisis nisl mattis. Nunc a fermentum tortor. Nulla vehicula nunc tortor,&nbsp;<a href="http://www.competethemes.com/tracks-two-column-demo/">eu sagittis dui</a>&nbsp;dictum a. Integer erat urna, gravida eu cursus non, posuere nec quam.</p>
-                        <h2>1. Nullam sit amet orci turpis.</h2>
-                        <p>Cras congue mi sit amet ullamcorper dapibus. Vestibulum pulvinar rutrum odio, et mollis elit blandit sit amet.</p>
-                        <p>Suspendisse semper</p>
-                        <ul>
-                        <li>elit eu volutpat tincidunt</li>
-                        <li>ante augue sodales justo</li>
-                        <li>auctor mattis mi dui at elit</li>
-                        <li>duis vel porttitor tellus</li>
-                        </ul>
-                        <h2>2. Aenean vestibulum volutpat est ut vestibulum.</h2>
-                        <p>Pellentesque mauris ante, elementum sed arcu id, tincidunt venenatis neque. Aliquam consectetur magna ut adipiscing molestie.</p>
-                        <ul>
-                        <li>Phasellus faucibus pretium odio.</li>
-                        <li>Ut ut lacus est.</li>
-                        <li>Nam consectetur nulla eget nibh auctor fermentum.</li>
-                        <li>Aenean&nbsp;<a href="http://www.competethemes.com/tracks-two-column-demo/">feugiat semper arcu</a></li>
-                        </ul>
-                        <p>id suscipit enim fermentum et. Curabitur tellus neque, eleifend et turpis dictum, lacinia porta nibh.</p>
-                        <p>Nulla sed tincidunt felis.</p>
-                        <h2>3. Phasellus malesuada sed metus nec tristique</h2>
-                        <p>Duis semper, eros nec aliquet lacinia, tortor erat interdum dui, non vestibulum massa odio et dui. Pellentesque in nibh libero. Sed at velit fermentum, porttitor nisi eu, condimentum orci.</p>
-                        <p>Sit amet risus cursus, nec lobortis magna aliquam. Fusce&nbsp;<strong>in mauris neque</strong>. Etiam vitae felis mauris. Vestibulum eu odio at velit varius hendrerit tempus vel libero. Vivamus ultricies sapien sed posuere scelerisque. Aliquam mattis eros et semper laoreet.</p>
-                        <h2>Donec eget consequat sem</h2>
-                        <p>Cras congue ac orci quis consequat. Sed purus libero, volutpat non facilisis et, adipiscing sed lacus. Vestibulum aliquam porta quam, vel varius tortor eleifend eu.</p>
-                        <h3>Donec at erat et sem bibendum hendrerit</h3>
-                        <p><strong>Vestibulum turpis augue, rhoncus a laoreet sed</strong>, vestibulum a nunc. Integer id tempor elit, sed commodo est. Sed&nbsp;<a href="http://www.competethemes.com/tracks-two-column-demo/">sollicitudin nibh faucibus</a>, vulputate turpis at, imperdiet mi.</p>
-                        <blockquote><p>Ut venenatis mauris vel consectetur convallis. Donec scelerisque at eros eu convallis. Nulla consequat ut eros et auctor. Fusce semper pretium massa sit amet mollis. Proin sit amet condimentum nulla, vitae cursus est.</p></blockquote>
-                        <p><em>Sed venenatis nisi vitae turpis dictum sollicitudin. Nunc quis metus porttitor neque luctus ultricies.</em></p>
+                        {{ article.content | safe }}
                     </div>
                     <div class="post-meta">
                         <p class="post-categories">
                             <span>Published in </span>
-                            <a href="https://www.competethemes.com/apex-live-demo/category/fashion/" title="View all posts in fashion">fashion</a> and
-                            <a href="https://www.competethemes.com/apex-live-demo/category/gaming/" title="View all posts in gaming">gaming</a>
+                            <a href="https://www.competethemes.com/apex-live-demo/category/fashion/" title="View all posts in fashion">{{ article.catagory }}</a>
                         </p>
                         <div class="post-tags">
                             <ul>
-                                <li>
-                                    <a href="https://www.competethemes.com/apex-live-demo/tag/blogging/" title="View all posts tagged blogging">blogging</a>
-                                </li>
-                                <li>
-                                    <a href="https://www.competethemes.com/apex-live-demo/tag/cooking/" title="View all posts tagged cooking">cooking</a>
-                                </li>
-                                <li>
-                                    <a href="https://www.competethemes.com/apex-live-demo/tag/fashion/" title="View all posts tagged fashion">fashion</a>
-                                </li>
-                                <li>
-                                    <a href="https://www.competethemes.com/apex-live-demo/tag/food/" title="View all posts tagged food">food</a>
-                                </li>
+                                {% for tag in article.tags.all %}
+                                    <li>
+                                        <a href="#" title="View all posts tagged blogging">{{ tag.name }}</a>
+                                    </li>
+                                {% endfor %}
                             </ul>
                         </div>
+                    {% if next_post or previous_post %}
                         <nav class="further-reading">
                             <div class="previous">
-                                <span>Previous Post</span>
-                                <a href="https://www.competethemes.com/apex-live-demo/2015/01/17/change-your-look/">New Lessons and Perspectives</a>
+                                {% if previous_post %}
+                                    <span>Previous Post</span>
+                                    <a href="/blog/article/?id={{ previous_post.id }}">{{ previous_post.title }}</a>
+                                {% endif %}
                             </div>
                             <div class="next">
-                                <span>Next Post</span>
-                                <a href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/">From State to State</a>
+                                {% if next_post %}
+                                    <span>Previous Post</span>
+                                    <a href="/blog/article/?id={{ next_post.id }}">{{ next_post.title }}</a>
+                                {% endif %}
                             </div>
                         </nav>
+                    {% endif %}
                     </div>
                 </div>
             </article>
 
             <section id="comments" class="comments">
                 <div class="comments-number">
-                    <h3>Be First to Comment</h3>
-                </div>
-                <ol class="comment-list">
-                </ol><!-- .comment-list -->
+                    {% if not article.comment_set.all %}
+                        <h3>Be First to Comment</h3>
+                        </div>
+                    {% else %}
+                        <h3>Comments</h3>
+                        </div>
+                        {% for comment in article.comment_set.all %}
+                            <ol class="comment-list">
+                                <lable>{{ comment.username }}: </lable><lable>{{ comment.content }}</lable>
+                            </ol>
+                        {% endfor %}
+                        <!-- .comment-list -->
+                    {% endif %}
+
                 <div id="respond" class="comment-respond">
-                    <h3 id="reply-title" class="comment-reply-title">Leave a Reply
-                        <small>
-                            <a rel="nofollow" id="cancel-comment-reply-link" href="https://www.competethemes.com/apex-live-demo/2015/02/01/the-tracks-theme-is-awesome/#respond" style="display:none;">Cancel reply</a>
-                        </small>
-                    </h3>
-                    <form action="https://www.competethemes.com/apex-live-demo/wp-comments-post.php?wpe-comment-post=competethemes" method="post" id="commentform" class="comment-form" novalidate="">
-                        <p class="comment-notes">
-                            <span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
-                        </p>							<p class="comment-form-author">
-                        <label>Name*</label>
-                        <input id="author" name="author" type="text" value="" size="30" aria-required="true">
-                        </p>
-                        <p class="comment-form-email">
-                            <label>Email*</label>
-                            <input id="email" name="email" type="email" value="" size="30" aria-required="true">
-                        </p>
-                        <p class="comment-form-url">
-                            <label>Website</label>
-                            <input id="url" name="url" type="url" value="" size="30">
-                        </p>
+                    <h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3>
+                    <form action="/blog/article/?id={{ article.id }}" method="post" id="commentform" class="comment-form" novalidate="">
+                        {% csrf_token %}
+                        {% if not user.is_authenticated %}
+                            <p class="comment-notes">
+                                <span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
+                            </p>
+                            <p class="comment-form-author">
+                                <label>Name*</label>
+                                <input id="author" name="username" type="text" value="" size="30" aria-required="true">
+                            </p>
+                            <p class="comment-form-email">
+                                <label>Email*</label>
+                                <input id="email" name="email" type="email" value="" size="30" aria-required="true">
+                            </p>
+                        {% endif %}
                         <p class="comment-form-comment">
                             <label>Comment</label>
-                            <textarea required="" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+                            <textarea required="" id="comment" name="content" cols="45" rows="8" aria-required="true" placeholder="no more than 200 words"></textarea>
                         </p>
                         <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment">
-                            <input type="hidden" name="comment_post_ID" value="19" id="comment_post_ID">
-                            <input type="hidden" name="comment_parent" id="comment_parent" value="0">
-                        </p>
-                        <p class="antispam-group antispam-group-q" style="clear: both; display: none;">
-                            <label>Copy and paste this code: <strong class="antspmpro-input-a">bikufo</strong> <span class="required">*</span></label>
-                            <input type="hidden" name="antspmpro-a" class="antispam-control antispam-control-a" value="bikufo">
-                            <input type="text" name="antspmpro-q-xanuwa" class="antispam-control antispam-control-q" value="4.0">
-                        </p>
-                        <p class="antispam-group antispam-group-e" style="display: none;">
-                            <label>Leave this field empty</label>
-                            <input type="text" name="antspmpro-e-email-url-website-xanuwa" class="antispam-control antispam-control-e" value="">
                         </p>
                     </form>
-                </div><!-- #respond -->
-            </section><!-- #comments -->
+                </div>
+                <!-- #respond -->
+            </section>
+            <!-- #comments -->
         </div>
 
-    </section> <!-- .main -->
+    </section>
+    <!-- .main -->
 
 {% endblock %}
 
 {% block custom_js %}
+    <script type="text/javascript">
+        console.log({{ article.tag }});
+    </script>
 {% endblock %}

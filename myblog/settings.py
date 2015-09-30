@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.59']
 
 
 # Application definition
@@ -97,7 +97,7 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/uploads/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads').replace('\\', '/')
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
