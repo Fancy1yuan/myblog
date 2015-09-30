@@ -24,11 +24,25 @@
         <div class="entry post publish author-drop-live-demo post-44 format-standard has-post-thumbnail sticky category-cooking category-news post_tag-blogging post_tag-funny post_tag-new">
             <form action="" method="post">
                 {% csrf_token %}
-                <p>Title*: <input type="text" name="title" maxlength="50"></p>
+                <p>Title*: {{ form.title }}</p>
                 <p>Img*: <input type="file" name="img"></p>
-                <p>Content*: <textarea class="vLargeTextField" cols="40" id="id_content" name="content" rows="10"></textarea></p>
-
-
+                <p> Content*: </p>
+                {{ form.content }}
+                <p>Catagory*:
+                    <select name="catagory">
+                        {% for catagory in catagorys %}
+                            <option value="{{ catagory.id }}">{{ catagory.name }}</option>
+                        {% endfor %}
+                    </select>
+                </p>
+                <p>Tag*:
+                    <select multiple="multiple" id="id_tags" name="tags">
+                        {% for tag in tags %}
+                            <option value="{{ tag.id }}">{{ tag.name }}</option>
+                        {% endfor %}
+                    </select>
+                </p>
+                <input type="submit" value="Publish">
             </form>
         </div>
     </section>
@@ -36,4 +50,6 @@
 
 
 {% block custom_js %}
+    <script src="/static/js/tinymce/tinymce.min.js"></script>
+    <script src="/static/js/tinymce/config.js"></script>
 {% endblock %}

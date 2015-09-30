@@ -25,7 +25,13 @@ class UserProfileForm(ModelForm):
 class ArticleForm(ModelForm):
     class Meta:
         model = Article
-        fields = ['title', 'img', 'content', 'tags', 'catagory']
+        fields = ['title', 'content']
+
+        widgets = {
+            'title': forms.TextInput(attrs={'max_length': 50}),
+            'img': forms.FileField(),
+            'content': forms.Textarea(attrs={'id': 'id_content'})
+        }
         
         error_messages = {
             'title': {
@@ -34,5 +40,5 @@ class ArticleForm(ModelForm):
             },
             'content': {
                 'required': "what are u thinking? where's the content"
-            }
+            },
         }

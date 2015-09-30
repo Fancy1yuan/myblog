@@ -2,7 +2,7 @@
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
-from forms import UserProfileForm
+from forms import UserProfileForm, ArticleForm
 from models import UserProfile, Article, Comment, Tag, Catagory
 from django.views.generic.base import View
 from django.core.context_processors import csrf
@@ -75,13 +75,26 @@ class ArticlePublish(View):
 
     def get(self, request):
         user = request.user
+        catagorys = Catagory.objects.all()
+        tags = Tag.objects.all()
+        form = ArticleForm()
+        result = {
+            'user': user,
+            'catagorys': catagorys,
+            'tags': tags,
+            'form': form
+        }
         if user.is_authenticated():
-            return render(request, self.template, {'user': user})
+            return render(request, self.template, result)
         else:
             return HttpResponseRedirect('/blog/')
 
     def post(self, request):
-        pass
+        article = ArticleForm(request.POST, request.FILES)
+        if article.is_valid():
+            catagorys = request.POST.get('catagory', None)
+            tags = request.POST.get('tags', None)
+        title = request.POST.get('title', None)
 
 
 def about(request):
