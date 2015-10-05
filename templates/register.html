@@ -28,7 +28,7 @@
             <div id="simple-contact-form" class="scf">
                 <form id="register" action="" method="post">
                     {% csrf_token %}
-                    <p>昵称</p>
+                    <p>昵称*</p>
                     {{ form.username }}
 
                     <p>姓</p>
@@ -37,14 +37,14 @@
                     <p>名</p>
                     {{ form.first_name }}
 
-                    <p>密码</p>
+                    <p>密码*</p>
                     {{ form.password }}
 
-                    <p>请再次输入密码</p>
+                    <p>请再次输入密码*</p>
                     <input id="id_password1" type="password" maxlength="50" minlength="8">
                     <span id="psd_error" style="display: none;color: red">两次输入密码不一致！！！</span>
 
-                    <p>邮箱</p>
+                    <p>邮箱*</p>
                     {{ form.email }}
 
                     <p>QQ</p>

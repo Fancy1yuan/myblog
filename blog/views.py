@@ -17,7 +17,12 @@ def index(request):
         #display bloghost's info if not login
         user = UserProfile.objects.get(id=2)
         setattr(user, "is_authenticated", False)
-    return render(request, 'Index.html', {'user': user})
+    articles = Article.objects.all().order_by('-publish_time')
+    result = {
+        'user': user,
+        'articles': articles
+    }
+    return render(request, 'Index.html', result)
 
 def detail(request):
     return render(request, 'Detail.html')
@@ -138,6 +143,8 @@ class RegisterView(View):
                                                   email=request.POST[u'email'], phone_num=request.POST[u'phone_num'] if request.POST[u'phone_num'] else None,
                                                   qq=request.POST[u'qq'])
                 user.save()
+
+                return render(request, 'register_success.html', {})
             else:
                 return render(request, self.templates, {'form': self.form})
         except Exception as e:

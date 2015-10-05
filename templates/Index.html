@@ -22,34 +22,35 @@
 {% block main %}
     <section id="main" class="main" role="main">
         <div class="entry post publish author-drop-live-demo post-44 format-standard has-post-thumbnail sticky category-cooking category-news post_tag-blogging post_tag-funny post_tag-new">
-            <article>
-
-                <div class="featured-image" style="background-image: url(&#39;https://www.competethemes.com/apex-live-demo/wp-content/uploads/sites/43/2015/02/golden-gate-bridge.jpg&#39;)">
-                    <a href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/">From State to State</a>
-                </div>
-                <div class="post-container">
-                    <div class="post-header">
-                        <div class="sticky-status">
-                            <span>Featured Post</span>
+            {% for article in articles %}
+                <article>
+                    <div class="featured-image" style="background-image: url(/uploads/{{ article.img }})">
+                        <a href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/">{{ article.title }}</a>
+                    </div>
+                    <div class="post-container">
+                        <div class="post-header">
+                            <div class="sticky-status">
+                                <span>Featured Post</span>
+                            </div>
+                            <h2 class="post-title">
+                                <a href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/">{{ article.title }}</a>
+                            </h2>
+                            <span class="post-date">Published {{ article.publish_time | date:"F d, Y" }}	</span>
                         </div>
-                        <h2 class="post-title">
-                            <a href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/">From State to State</a>
-                        </h2>
-                        <span class="post-date">Published February 10, 2015	</span>
+                        <div class="post-content">
+                            <p>{{ article.content | slice:":300" | safe}}...</p>
+                            <p>
+                                <a class="more-link" href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/">Continue reading <span class="screen-reader-text">{{ article.title }}</span>
+                                </a>
+                            </p>
+                            <span class="comments-link">
+                                <i class="fa fa-comment" title="comment icon"></i>
+                                <a href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/#comments">{{ article.set_comment | length }} Comments</a>
+                            </span>
+                        </div>
                     </div>
-                    <div class="post-content">
-                        <p>Nam auctor a purus vel venenatis. Quisque magna nibh, cursus ac nisl nec, porta porttitor arcu. Nam sapien magna, semper ut lectus nec, fermentum rutrum…</p>
-                        <p>
-                            <a class="more-link" href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/">Continue reading <span class="screen-reader-text">From State to State</span>
-                            </a>
-                        </p>
-                        <span class="comments-link">
-                            <i class="fa fa-comment" title="comment icon"></i>
-                            <a href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/#comments">2 Comments</a>
-                        </span>
-                    </div>
-                </div>
-            </article>
+                </article>
+            {% endfor %}
         </div>
 
 
