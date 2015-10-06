@@ -22,7 +22,7 @@
 {% block main %}
     <section id="main" class="main" role="main">
         <div class="entry post publish author-drop-live-demo post-44 format-standard has-post-thumbnail sticky category-cooking category-news post_tag-blogging post_tag-funny post_tag-new">
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <p>Title*: {{ form.title }}</p>
                 <p>Img*: <input type="file" name="img"></p>

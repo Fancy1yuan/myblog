@@ -25,11 +25,11 @@ class UserProfileForm(ModelForm):
 class ArticleForm(ModelForm):
     class Meta:
         model = Article
-        fields = ['title', 'content']
+        fields = ['title', 'content', 'img']
 
         widgets = {
             'title': forms.TextInput(attrs={'max_length': 50}),
-            'img': forms.FileField(),
+            # 'img': forms.FileField(),
             'content': forms.Textarea(attrs={'id': 'id_content'})
         }
         

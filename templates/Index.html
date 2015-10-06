@@ -12,9 +12,9 @@
 
 {% block menu %}
     <ul id="menu-primary-items" class="menu-primary-items">
-        <li id="menu-item-111" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-111 current-menu-item"><a href="/static/css/Apex Live Demo_ Sophisticated and minimalist.html">Home</a></li>
-        <li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113"><a href="https://www.competethemes.com/apex-live-demo/about/">About</a></li>
-        <li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113"><a href="https://www.competethemes.com/apex-live-demo/about/">Contact me</a></li>
+        <li id="menu-item-111" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-111 current-menu-item"><a href="/blog/">Home</a></li>
+        <li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113"><a href="/blog/about/">About</a></li>
+        <li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113"><a href="/blog/contact/">Contact me</a></li>
     </ul>
 {% endblock %}
 
@@ -25,7 +25,7 @@
             {% for article in articles %}
                 <article>
                     <div class="featured-image" style="background-image: url(/uploads/{{ article.img }})">
-                        <a href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/">{{ article.title }}</a>
+                        <a href="/blog/article/?id={{ article.id }}">{{ article.title }}</a>
                     </div>
                     <div class="post-container">
                         <div class="post-header">
@@ -33,19 +33,19 @@
                                 <span>Featured Post</span>
                             </div>
                             <h2 class="post-title">
-                                <a href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/">{{ article.title }}</a>
+                                <a href="/blog/article/?id={{ article.id }}">{{ article.title }}</a>
                             </h2>
                             <span class="post-date">Published {{ article.publish_time | date:"F d, Y" }}	</span>
                         </div>
                         <div class="post-content">
                             <p>{{ article.content | slice:":300" | safe}}...</p>
                             <p>
-                                <a class="more-link" href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/">Continue reading <span class="screen-reader-text">{{ article.title }}</span>
+                                <a class="more-link" href="/blog/article/?id={{ article.id }}">Continue reading <span class="screen-reader-text">{{ article.title }}</span>
                                 </a>
                             </p>
                             <span class="comments-link">
                                 <i class="fa fa-comment" title="comment icon"></i>
-                                <a href="https://www.competethemes.com/apex-live-demo/2015/02/10/four-stunning-new-layouts/#comments">{{ article.set_comment | length }} Comments</a>
+                                <a href="/blog/article/?id={{ article.id }}">{{ article.set_comment | length }} Comments</a>
                             </span>
                         </div>
                     </div>

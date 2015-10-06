@@ -95,11 +95,20 @@ class ArticlePublish(View):
             return HttpResponseRedirect('/blog/')
 
     def post(self, request):
-        article = ArticleForm(request.POST, request.FILES)
-        if article.is_valid():
-            catagorys = request.POST.get('catagory', None)
-            tags = request.POST.get('tags', None)
-        title = request.POST.get('title', None)
+        try:
+            article = ArticleForm(request.POST, request.FILES)
+            if article.is_valid():
+                article = Article.objects.create(title=request.POST['title'], img=request.FILES['img'], author=request.user,
+                                                 content=request.POST['content'], catagory_id=int(request.POST['catagory']))
+                article.save()
+                tags = request.POST.getlist('tags')
+                for tag in tags:
+                    tag = Tag.objects.get(id=int(tag))
+                    article.tags.add(tag)
+                article.save()
+            return HttpResponseRedirect('/blog/')
+        except Exception as e:
+            pass
 
 
 def about(request):
@@ -114,8 +123,13 @@ def not_found(request):
     return render(request, '404.html')
 
 
-def test(request):
-    return render(request, 'base.html')
+class Test(View):
+
+    def get(self, request):
+        return render(request, 'test.html')
+
+    def post(self, request):
+        pass
 
 
 class RegisterView(View):
