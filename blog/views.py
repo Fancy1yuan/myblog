@@ -2,13 +2,16 @@
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from forms import UserProfileForm, ArticleForm
-from models import UserProfile, Article, Comment, Tag, Catagory
+from models import UserProfile, Article, Comment, Tag, Catagory, Message
 from django.views.generic.base import View
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
+
+max_article_per_page = 5
 
 def index(request):
     if request.user.is_authenticated():
@@ -18,8 +21,17 @@ def index(request):
         user = UserProfile.objects.get(id=2)
         setattr(user, "is_authenticated", False)
     articles = Article.objects.all().order_by('-publish_time')
+    articles = Paginator(articles, max_article_per_page)
+    page = int(request.GET.get('page', 1))
+    try:
+        articles = articles.page(page)
+    except PageNotAnInteger:
+        articles = articles.page(1)
+    except EmptyPage:
+        articles = articles.page(articles.num_pages)
     result = {
         'user': user,
+        'cur_page': page,
         'articles': articles
     }
     return render(request, 'Index.html', result)
@@ -79,7 +91,10 @@ class ArticlePublish(View):
     template = 'ArticlePublish.html'
 
     def get(self, request):
-        user = request.user
+        if request.user.is_authenticated():
+            user = request.user
+        else:
+            user = UserProfile.objects.get(id=2)
         catagorys = Catagory.objects.all()
         tags = Tag.objects.all()
         form = ArticleForm()
@@ -98,7 +113,7 @@ class ArticlePublish(View):
         try:
             article = ArticleForm(request.POST, request.FILES)
             if article.is_valid():
-                article = Article.objects.create(title=request.POST['title'], img=request.FILES['img'], author=request.user,
+                article = Article.objects.create(title=request.POST['title'], img=request.FILES['img'] if request.FILES else None, author=request.user,
                                                  content=request.POST['content'], catagory_id=int(request.POST['catagory']))
                 article.save()
                 tags = request.POST.getlist('tags')
@@ -111,12 +126,53 @@ class ArticlePublish(View):
             pass
 
 
+def search(request):
+    try:
+        keyword = request.GET.get('keyword', None)
+        if keyword:
+            if request.user.is_authenticated():
+                user = request.user
+            else:
+                user = UserProfile.objects.get(id=2)
+            search_article = Article.objects.filter(title__icontains=keyword).order_by('-publish_time')
+            articles = Paginator(search_article, max_article_per_page)
+            page = int(request.GET.get('page', 1))
+            try:
+                articles = articles.page(page)
+            except PageNotAnInteger:
+                articles = articles.page(1)
+            except EmptyPage:
+                articles = articles.page(articles.num_pages)
+            result = {
+                'user': user,
+                'keyword': keyword,
+                'articles': articles,
+                'cur_page': page
+            }
+            return render(request, 'Search_result.html', result)
+        else:
+            return HttpResponseRedirect('/blog/')
+
+    except Exception as e:
+        return HttpResponseRedirect('/blog/')
+
+
 def about(request):
     return render(request, 'About.html')
 
 
-def contact(request):
-    return render(request, 'Contact.html')
+class Contact(View):
+    template = 'Contact.html'
+
+    def get(self, request):
+        return render(request, self.template)
+
+    def post(self, request):
+        message_content = request.POST['message']
+        message = Message.objects.create(name=request.POST['name'], email=request.POST['email'],
+                                         message=message_content)
+        message.save()
+        return HttpResponseRedirect('/blog/')
 
 
 def not_found(request):
@@ -133,7 +189,7 @@ class Test(View):
 
 
 class RegisterView(View):
-    templates = 'register.html'
+    templates = 'Register.html'
     form = UserProfileForm()
 
     def get(self, request):
@@ -158,7 +214,7 @@ class RegisterView(View):
                                                   qq=request.POST[u'qq'])
                 user.save()
 
-                return render(request, 'register_success.html', {})
+                return render(request, 'Register_success.html', {})
             else:
                 return render(request, self.templates, {'form': self.form})
         except Exception as e:

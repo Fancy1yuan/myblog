@@ -48,7 +48,7 @@ class Article(models.Model):
     title = models.CharField("标题", max_length=50)
     author = models.ForeignKey(UserProfile, verbose_name="作者")
     content = models.TextField("文章内容")
-    img = models.ImageField("文章题图", upload_to='article/%Y/%m', default= 'article/default.png', max_length=1024*5)
+    img = models.ImageField("文章题图", upload_to='article/%Y/%m', blank=True, null=True, max_length=1024*5)
     tags = models.ManyToManyField(Tag, "标签")
     catagory = models.ForeignKey(Catagory, verbose_name="分类")
     publish_time = models.DateTimeField("发表时间", auto_now_add=True)
@@ -76,6 +76,20 @@ class Comment(models.Model):
         verbose_name = "评论"
         verbose_name_plural = "评论"
         ordering = ['create_time']
+
+    def __unicode__(self):
+        return self.id
+
+
+class Message(models.Model):
+    name = models.CharField("称呼", max_length=50)
+    email = models.EmailField("邮箱")
+    message = models.TextField("留言")
+    create_time = models.DateTimeField("留言时间", auto_now_add=True)
+
+    class Meta:
+        verbose_name = "留言"
+        verbose_name_plural = verbose_name
 
     def __unicode__(self):
         return self.id

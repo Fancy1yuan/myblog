@@ -25,7 +25,7 @@
             <form action="" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <p>Title*: {{ form.title }}</p>
-                <p>Img*: <input type="file" name="img"></p>
+                <p>Img: <input type="file" name="img"></p>
                 <p> Content*: </p>
                 {{ form.content }}
                 <p>Catagory*:
