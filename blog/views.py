@@ -6,7 +6,6 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from forms import UserProfileForm, ArticleForm
 from models import UserProfile, Article, Comment, Tag, Catagory, Message
 from django.views.generic.base import View
-from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
@@ -29,15 +28,40 @@ def index(request):
         articles = articles.page(1)
     except EmptyPage:
         articles = articles.page(articles.num_pages)
+    side_catagorys = get_catagory()
+    side_tags = get_all_tags()
+    recent_post = get_recent_post()
     result = {
         'user': user,
         'cur_page': page,
-        'articles': articles
+        'articles': articles,
+        'side_catagorys': side_catagorys,
+        'side_tags': side_tags,
+        'recent_post': recent_post
     }
     return render(request, 'Index.html', result)
 
-def detail(request):
-    return render(request, 'Detail.html')
+
+# 返回现在所有分类下的文章数目
+def get_catagory():
+    catagorys = Catagory.objects.all()
+    result = []
+    for catagory in catagorys:
+        article_count = Article.objects.filter(catagory=catagory).count()
+        setattr(catagory, "article_count", article_count)
+        result.append(catagory)
+    return result
+
+
+def get_all_tags():
+    tags = Tag.objects.all()
+    return tags
+
+
+def get_recent_post():
+    articles = Article.objects.all().order_by('-publish_time')[:5]
+    return articles
+
 
 class ArticleView(View):
     template = 'Detail.html'
@@ -53,10 +77,16 @@ class ArticleView(View):
                 previous_post = Article.objects.filter(id=article_id-1)
                 if previous_post:
                     previous_post = previous_post[0]
+                side_catagorys = get_catagory()
+                side_tags = get_all_tags()
+                recent_post = get_recent_post()
                 data = {
                     'article': article[0],
                     'next_post': next_post,
                     'previous_post': previous_post,
+                    'side_catagorys': side_catagorys,
+                    'side_tags': side_tags,
+                    'recent_post': recent_post
                 }
                 return render(request, self.template, data)
             else:
@@ -94,20 +124,24 @@ class ArticlePublish(View):
         if request.user.is_authenticated():
             user = request.user
         else:
-            user = UserProfile.objects.get(id=2)
+            return HttpResponseRedirect('/blog/')
         catagorys = Catagory.objects.all()
         tags = Tag.objects.all()
         form = ArticleForm()
+        side_catagorys = get_catagory()
+        side_tags = get_all_tags()
+        recent_post = get_recent_post()
         result = {
             'user': user,
             'catagorys': catagorys,
             'tags': tags,
-            'form': form
+            'form': form,
+            'side_catagorys': side_catagorys,
+            'side_tags': side_tags,
+            'recent_post': recent_post
         }
-        if user.is_authenticated():
-            return render(request, self.template, result)
-        else:
-            return HttpResponseRedirect('/blog/')
+        return render(request, self.template, result)
+
 
     def post(self, request):
         try:
@@ -129,29 +163,45 @@ class ArticlePublish(View):
 def search(request):
     try:
         keyword = request.GET.get('keyword', None)
+        catagory = request.GET.get('catagory', None)
+        tag = request.GET.get('tag', None)
+        if request.user.is_authenticated():
+            user = request.user
+        else:
+            user = UserProfile.objects.get(id=2)
         if keyword:
-            if request.user.is_authenticated():
-                user = request.user
-            else:
-                user = UserProfile.objects.get(id=2)
             search_article = Article.objects.filter(title__icontains=keyword).order_by('-publish_time')
-            articles = Paginator(search_article, max_article_per_page)
-            page = int(request.GET.get('page', 1))
-            try:
-                articles = articles.page(page)
-            except PageNotAnInteger:
-                articles = articles.page(1)
-            except EmptyPage:
-                articles = articles.page(articles.num_pages)
-            result = {
-                'user': user,
-                'keyword': keyword,
-                'articles': articles,
-                'cur_page': page
-            }
-            return render(request, 'Search_result.html', result)
+        elif catagory:
+            catagory = Catagory.objects.get(name=catagory)
+            search_article = Article.objects.filter(catagory=catagory).order_by('-publish_time')
+        elif tag:
+            tag = Tag.objects.get(name=tag)
+            search_article = Article.objects.filter(tags=tag)
         else:
             return HttpResponseRedirect('/blog/')
+        page = int(request.GET.get('page', 1))
+        articles = Paginator(search_article, max_article_per_page)
+        try:
+            articles = articles.page(page)
+        except PageNotAnInteger:
+            articles = articles.page(1)
+        except EmptyPage:
+            articles = articles.page(articles.num_pages)
+        side_catagorys = get_catagory()
+        side_tags = get_all_tags()
+        recent_post = get_recent_post()
+        result = {
+            'user': user,
+            'keyword': keyword,
+            'catagory': catagory,
+            'tag': tag,
+            'articles': articles,
+            'cur_page': page,
+            'side_catagorys': side_catagorys,
+            'side_tags': side_tags,
+            'recent_post': recent_post
+        }
+        return render(request, 'Search_result.html', result)
 
     except Exception as e:
         return HttpResponseRedirect('/blog/')
@@ -193,14 +243,20 @@ class RegisterView(View):
     form = UserProfileForm()
 
     def get(self, request):
+        if request.user.is_authenticated():
+            return HttpResponseRedirect('/blog/')
+        else:
+            user = request.user
+        side_catagorys = get_catagory()
+        side_tags = get_all_tags()
+        recent_post = get_recent_post()
         result = {
-            'form': self.form
+            'form': self.form,
+            'user': user,
+            'side_catagorys': side_catagorys,
+            'side_tags': side_tags,
+            'recent_post': recent_post
         }
-        result.update(csrf(request))
-        user = UserProfile.objects.all()
-        for us in user[1:4]:
-            us.set_password(us.password)
-            us.save()
 
         return render(request, self.templates, result)
 
@@ -216,9 +272,9 @@ class RegisterView(View):
 
                 return render(request, 'Register_success.html', {})
             else:
-                return render(request, self.templates, {'form': self.form})
+                return HttpResponseRedirect('/blog/register/')
         except Exception as e:
-                pass
+                return HttpResponseRedirect('/blog/register/')
 
 
 @csrf_exempt    # 没做出登陆弹窗，没法加{% csrf_token %},暂时舍弃该功能

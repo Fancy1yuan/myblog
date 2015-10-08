@@ -20,7 +20,13 @@
 
 
 {% block main %}
-    <h3 style="min-height: 30px"><em>Search '{{ keyword }}'</em></h3>
+    {% if keyword %}
+        <h3 style="min-height: 30px"><em>Search '{{ keyword }}'</em></h3>
+    {% elif catagory %}
+        <h3 style="min-height: 30px"><em>Search '{{ catagory.name }}'</em></h3>
+    {% elif tag %}
+        <h3 style="min-height: 30px"><em>Search '{{ tag.name }}'</em></h3>
+    {% endif %}
     <section id="main" class="main" role="main">
         <div class="entry post publish author-drop-live-demo post-44 format-standard has-post-thumbnail sticky category-cooking category-news post_tag-blogging post_tag-funny post_tag-new">
             {% for article in articles %}
