@@ -22,20 +22,20 @@ class CatagoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'time_format')
 
 
-# class CommentAdmin(admin.ModelAdmin):
-#     # def time_format(self, Comment):
-#     #     return Comment.create_time.strftime("%y/%m/%d")
-#
-#     def description(self, Comment):
-#         if len(Comment.content) >= 15:
-#             return Comment.content[:15] + '......'
-#         return Comment.content[:15]
-#
-#     # time_format.admin_order_field = 'create_time'
-#     # time_format.short_description = '评论时间'
-#     description.admin_order_field = 'content'
-#     description.short_description = '评论'
-#     list_display = ('description', 'username') #, 'time_format')
+class CommentAdmin(admin.ModelAdmin):
+    # def time_format(self, Comment):
+    #     return Comment.create_time.strftime("%y/%m/%d")
+
+    def description(self, Comment):
+        if len(Comment.content) >= 15:
+            return Comment.content[:15] + '......'
+        return Comment.content[:15]
+
+    # time_format.admin_order_field = 'create_time'
+    # time_format.short_description = '评论时间'
+    description.admin_order_field = 'content'
+    description.short_description = '评论'
+    list_display = ('description', 'username') # , 'time_format')
 
 
 class ArticleAdmin(admin.ModelAdmin):
@@ -55,27 +55,27 @@ class ArticleAdmin(admin.ModelAdmin):
         )
 
 
-# class MessageAdmin(admin.ModelAdmin):
-#
-#     def time_format(self, Message):
-#         return Message.create_time.strftime("%y/%m/%d")
-#
-#     # def description(self, Message):
-#     #     if len(Message.message) >= 15:
-#     #         return Message.message[:15] + '......'
-#     #     return Message.message[:15]
-#
-#     time_format.admin_order_field = 'create_time'
-#     time_format.short_description = '创建时间'
-#     # description.admin_order_field = 'message'
-#     # description.short_description = '留言'
-#
-#     list_display = ['name', 'description'] # , 'time_format']
+class MessageAdmin(admin.ModelAdmin):
+
+    def time_format(self, Message):
+        return Message.create_time.strftime("%y/%m/%d")
+
+    def description(self, Message):
+        if len(Message.message) >= 15:
+            return Message.message[:15] + '......'
+        return Message.message[:15]
+
+    time_format.admin_order_field = 'create_time'
+    time_format.short_description = '创建时间'
+    description.admin_order_field = 'message'
+    description.short_description = '留言'
+
+    list_display = ['name', 'description', 'time_format']
 
 
 admin.site.register(UserProfile)
 admin.site.register(Tag, TagAdmin)
-admin.site.register(Comment)
+admin.site.register(Comment, CommentAdmin)
 admin.site.register(Catagory, CatagoryAdmin)
 admin.site.register(Article, ArticleAdmin)
-admin.site.register(Message)
+admin.site.register(Message, MessageAdmin)

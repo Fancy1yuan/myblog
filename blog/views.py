@@ -7,18 +7,13 @@ from forms import UserProfileForm, ArticleForm
 from models import UserProfile, Article, Comment, Tag, Catagory, Message
 from django.views.generic.base import View
 from django.views.decorators.csrf import csrf_exempt
+from utils import cus_render
 
 # Create your views here.
 
 max_article_per_page = 5
 
 def index(request):
-    if request.user.is_authenticated():
-        user = request.user
-    else:
-        #display bloghost's info if not login
-        user = UserProfile.objects.get(id=2)
-        setattr(user, "is_authenticated", False)
     articles = Article.objects.all().order_by('-publish_time')
     articles = Paginator(articles, max_article_per_page)
     page = int(request.GET.get('page', 1))
@@ -28,39 +23,32 @@ def index(request):
         articles = articles.page(1)
     except EmptyPage:
         articles = articles.page(articles.num_pages)
-    side_catagorys = get_catagory()
-    side_tags = get_all_tags()
-    recent_post = get_recent_post()
     result = {
-        'user': user,
         'cur_page': page,
         'articles': articles,
-        'side_catagorys': side_catagorys,
-        'side_tags': side_tags,
-        'recent_post': recent_post
     }
-    return render(request, 'Index.html', result)
+    return cus_render(request, 'Index.html', result)
 
 
-# 返回现在所有分类下的文章数目
-def get_catagory():
-    catagorys = Catagory.objects.all()
-    result = []
-    for catagory in catagorys:
-        article_count = Article.objects.filter(catagory=catagory).count()
-        setattr(catagory, "article_count", article_count)
-        result.append(catagory)
-    return result
-
-
-def get_all_tags():
-    tags = Tag.objects.all()
-    return tags
-
-
-def get_recent_post():
-    articles = Article.objects.all().order_by('-publish_time')[:5]
-    return articles
+# # 返回现在所有分类下的文章数目
+# def get_catagory():
+#     catagorys = Catagory.objects.all()
+#     result = []
+#     for catagory in catagorys:
+#         article_count = Article.objects.filter(catagory=catagory).count()
+#         setattr(catagory, "article_count", article_count)
+#         result.append(catagory)
+#     return result
+#
+#
+# def get_all_tags():
+#     tags = Tag.objects.all()
+#     return tags
+#
+#
+# def get_recent_post():
+#     articles = Article.objects.all().order_by('-publish_time')[:5]
+#     return articles
 
 
 class ArticleView(View):
@@ -77,18 +65,12 @@ class ArticleView(View):
                 previous_post = Article.objects.filter(id=article_id-1)
                 if previous_post:
                     previous_post = previous_post[0]
-                side_catagorys = get_catagory()
-                side_tags = get_all_tags()
-                recent_post = get_recent_post()
                 data = {
                     'article': article[0],
                     'next_post': next_post,
                     'previous_post': previous_post,
-                    'side_catagorys': side_catagorys,
-                    'side_tags': side_tags,
-                    'recent_post': recent_post
                 }
-                return render(request, self.template, data)
+                return cus_render(request, self.template, data)
             else:
                 return render(request, '404.html')
         except Exception as e:
@@ -121,26 +103,17 @@ class ArticlePublish(View):
     template = 'ArticlePublish.html'
 
     def get(self, request):
-        if request.user.is_authenticated():
-            user = request.user
-        else:
+        if not request.user.is_authenticated():
             return HttpResponseRedirect('/blog/')
         catagorys = Catagory.objects.all()
         tags = Tag.objects.all()
         form = ArticleForm()
-        side_catagorys = get_catagory()
-        side_tags = get_all_tags()
-        recent_post = get_recent_post()
         result = {
-            'user': user,
             'catagorys': catagorys,
             'tags': tags,
             'form': form,
-            'side_catagorys': side_catagorys,
-            'side_tags': side_tags,
-            'recent_post': recent_post
         }
-        return render(request, self.template, result)
+        return cus_render(request, self.template, result)
 
 
     def post(self, request):
@@ -165,10 +138,6 @@ def search(request):
         keyword = request.GET.get('keyword', None)
         catagory = request.GET.get('catagory', None)
         tag = request.GET.get('tag', None)
-        if request.user.is_authenticated():
-            user = request.user
-        else:
-            user = UserProfile.objects.get(id=2)
         if keyword:
             search_article = Article.objects.filter(title__icontains=keyword).order_by('-publish_time')
         elif catagory:
@@ -187,35 +156,35 @@ def search(request):
             articles = articles.page(1)
         except EmptyPage:
             articles = articles.page(articles.num_pages)
-        side_catagorys = get_catagory()
-        side_tags = get_all_tags()
-        recent_post = get_recent_post()
         result = {
-            'user': user,
             'keyword': keyword,
             'catagory': catagory,
             'tag': tag,
             'articles': articles,
             'cur_page': page,
-            'side_catagorys': side_catagorys,
-            'side_tags': side_tags,
-            'recent_post': recent_post
         }
-        return render(request, 'Search_result.html', result)
+        return cus_render(request, 'Search_result.html', result)
 
     except Exception as e:
         return HttpResponseRedirect('/blog/')
 
 
 def about(request):
-    return render(request, 'About.html')
+    return cus_render(request, 'About.html')
 
 
 class Contact(View):
     template = 'Contact.html'
 
     def get(self, request):
-        return render(request, self.template)
+        if request.user.is_authenticated():
+            user = request.user
+        else:
+            user = UserProfile.objects.get(id=2)
+        result = {
+            'user': user,
+        }
+        return cus_render(request, self.template, result)
 
     def post(self, request):
         message_content = request.POST['message']
@@ -245,17 +214,8 @@ class RegisterView(View):
     def get(self, request):
         if request.user.is_authenticated():
             return HttpResponseRedirect('/blog/')
-        else:
-            user = request.user
-        side_catagorys = get_catagory()
-        side_tags = get_all_tags()
-        recent_post = get_recent_post()
         result = {
             'form': self.form,
-            'user': user,
-            'side_catagorys': side_catagorys,
-            'side_tags': side_tags,
-            'recent_post': recent_post
         }
 
         return render(request, self.templates, result)
