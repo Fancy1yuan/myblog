@@ -1,10 +1,9 @@
-import os
+# '''use tornado as web server
+# '''
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "myblog.settings")
 import django.core.handlers.wsgi
 from django.core.wsgi import get_wsgi_application
-import django.db
 
-import tornado.httpserver
 import tornado.ioloop
 import tornado.web
 import tornado.wsgi
