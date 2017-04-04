@@ -1,10 +1,10 @@
-管理员帐号：yuansmin@sina.com
-          madmin
+管理员帐号：admin
+          admin
 
 简短说明：
     1 数据库使用的是SQLite3
     2 用户认证基本使用了Django自带的认证系统，用户的Model是继承了AbstractUser，添加了头像 QQ 电话 和简介。
-    3 模板是在www.competethemes.com/apex-live-demo找的一个，很精简
+    3 模板来自www.competethemes.com/apex-live-demo，非常精简
 
 
 功能：
@@ -15,4 +15,4 @@
     5 给后台和发表文章添加了Tinymce富文本编辑器
 
 
-注：使用了Git作为版本管理器
+运行： `python manage.py runserver`
